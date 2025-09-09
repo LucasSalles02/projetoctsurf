@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Escola de Surf{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'core/css/main.css' %}">
+</head>
+<body>
+    
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="{% static 'core/images/logo.png' %}" alt="Logo Escola de Surf">
+            <h1>Escola de Surf</h1>
+        </div>
+        <nav class="main-menu">
+            <ul>
+                <li>
+                    <a href="#">
+                        Alunos
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Turmas
+                    </a>
+                </li>
+                </ul>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <header class="topbar">
+        </header>
+        
+        {% block content %}
+        
+        {% endblock %}
+    </main>
+
+    <script src="{% static 'core/js/main.js' %}"></script>
+</body>
+</html>

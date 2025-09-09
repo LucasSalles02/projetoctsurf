@@ -1,0 +1,16 @@
+# Ambiente Virtual
+venv/
+.env
+
+# Arquivos de Banco de Dados
+db.sqlite3
+
+# Arquivos de Cache e PyCharm
+*.pyc
+__pycache__/
+
+# Arquivos de Mídia
+/media/
+
+# Chaves secretas
+escola_surf_project/settings.py
