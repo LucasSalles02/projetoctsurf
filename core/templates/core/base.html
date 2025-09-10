@@ -12,7 +12,7 @@
     <aside class="sidebar">
         <div class="logo">
             <img src="{% static 'core/images/logo.png' %}" alt="Logo Escola de Surf">
-            <h1>Escola de Surf</h1>
+            <h1>Escola de<br>Surf</h1>
         </div>
         <nav class="main-menu">
             <ul>
@@ -26,17 +26,31 @@
                         Turmas
                     </a>
                 </li>
-                </ul>
+            </ul>
         </nav>
     </aside>
 
     <main class="content">
         <header class="topbar">
+            <div class="topbar-left">
+                <h2>{% block page_title %}Bem Vindo!{% endblock %}</h2>
+            </div>
+            <div class="topbar-right">
+                <div class="user-profile-button">
+                    <span class="profile-icon"></span> <div class="user-info">
+                        <span class="user-name">Usuário</span> <span class="user-role">Instrutor</span>
+                    </div>
+                    <div class="user-avatar">
+                        <img src="{% static 'core/images/default-avatar.png' %}" alt="Avatar">
+                    </div>
+                 </div>
+            </div>
         </header>
         
-        {% block content %}
-        
-        {% endblock %}
+        <div class="main-content">
+            {% block content %}
+            {% endblock %}
+        </div>
     </main>
 
     <script src="{% static 'core/js/main.js' %}"></script>
