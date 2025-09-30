@@ -4,6 +4,6 @@ from . import views
 app_name = 'alunos'
 
 urlpatterns = [
-    # URLs temporárias - implementaremos depois
-    # path('', views.lista_alunos, name='lista'),
+    path('', views.lista_alunos, name='lista_alunos'),
+    path('cadastro/', views.cadastro_aluno, name='cadastro_aluno'),
 ]

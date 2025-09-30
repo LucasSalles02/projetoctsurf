@@ -1,0 +1,66 @@
+{% extends 'core/base.html' %} 
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'alunos/css/listagem.css' %}">
+{% endblock extra_head %}
+
+{% block title %}{{ titulo }}{% endblock title %}
+
+{% block content %}
+
+    <div class="list-container">
+        
+        <div class="actions-header">
+            <div>
+                <a href="{% url 'alunos:cadastro_aluno' %}" class="action-button">
+                    + Nova Inscrição
+                </a>
+                
+                <span class="action-button active-button">
+                    Lista de Inscrições
+                </span>
+            </div>
+            </div>
+        <div class="list-card">
+            <table class="alunos-table">
+                <thead>
+                    <tr>
+                        <th>ID do Aluno</th>
+                        <th>Nome do Aluno</th>
+                        <th>Turma</th>
+                        <th>Turno</th>
+                        <th>Situação</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for aluno in alunos %}
+                    <tr>
+                        <td>{{ aluno.id|stringformat:"03d" }}</td>
+                        <td>{{ aluno.nome }}</td>
+                        
+                        <td>{{ aluno.turma.nome|default:"-" }}</td> 
+                        <td>{{ aluno.turma.turno|default:"-" }}</td> 
+                        
+                        {% with situacao="Ativo" %}
+                            <td class="status-ativo">{{ situacao }}</td>
+                        {% endwith %}
+
+                        <td>
+                            <a href="#" class="action-icon icon-config" title="Configurar">⚙</a>
+                            <a href="#" class="action-icon icon-delete" title="Excluir">❌</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 30px; color: #888;">Nenhum aluno cadastrado.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+{% endblock content %}

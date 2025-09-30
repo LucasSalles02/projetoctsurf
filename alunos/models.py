@@ -1,24 +1,22 @@
 from django.db import models
-from turmas.models import Turma
 
 class Aluno(models.Model):
+    # Campos PRINCIPAIS
     nome = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
-    senha = models.CharField(max_length=128)  # depois pode usar hash
-    idade = models.PositiveIntegerField()
-    cpf = models.CharField(max_length=14, unique=True)  # formato 000.000.000-00
+    data_nascimento = models.DateField()
+    cpf = models.CharField(max_length=11, unique=True)
     endereco = models.CharField(max_length=200)
-    numero = models.CharField(max_length=10)
-    desempenho = models.TextField(blank=True, null=True)
-    frequencia = models.FloatField(default=0)
+    
+    # Campos de Endereço
+    bairro = models.CharField(max_length=100)
+    cidade = models.CharField(max_length=100)
+    cep = models.CharField(max_length=9)
 
-    turma = models.ForeignKey(
-        Turma,
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name="alunos"
-    )
+    # Campos de Responsável
+    nome_responsavel = models.CharField(max_length=100)
+    cpf_responsavel = models.CharField(max_length=11)
+    numero_responsavel = models.CharField(max_length=11)
+
 
     def __str__(self):
         return self.nome

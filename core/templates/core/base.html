@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Escola de Surf{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'core/css/main.css' %}">
+
+     {# espaço para CSS extra das páginas filhas #}
+    {% block extra_head %}{% endblock extra_head %}
 </head>
 <body>
     
@@ -17,7 +20,7 @@
         <nav class="main-menu">
             <ul>
                 <li>
-                    <a href="#">
+                    <a href={% url 'alunos:lista_alunos' %}>
                         Alunos
                     </a>
                 </li>

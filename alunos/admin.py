@@ -3,6 +3,19 @@ from .models import Aluno
 
 @admin.register(Aluno)
 class AlunoAdmin(admin.ModelAdmin):
-    list_display = ("nome", "email", "idade", "cpf", "turma", "frequencia")
-    search_fields = ("nome", "email", "cpf")
-    list_filter = ("turma", "idade")
+    list_display = (
+        "id",
+        "nome",
+        "data_nascimento",
+        "cpf",
+        "cidade",
+        "nome_responsavel",
+        "numero_responsavel",
+    )
+    search_fields = ("nome", "cpf", "nome_responsavel", "cpf_responsavel")
+    
+    
+    list_filter = ("cidade",) 
+    
+    ordering = ("nome",)
+    list_per_page = 20
